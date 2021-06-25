@@ -1,0 +1,275 @@
+{
+    "_other": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/description$"] },
+        { "regex": ["^/text$"] },
+        { "regex": ["^/sound$"] },
+        { "regex": ["^/messages$"] }
+    ],
+    "achievement": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/description$"] },
+        { "regex": ["^/requirements/\\d/description$"] }
+    ],
+    "bodypart": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/name_multiple$"] },
+        { "regex": ["^/accusative$"] },
+        { "regex": ["^/accusative_multiple$"] },
+        { "regex": ["^/encumbrance_text$"] },
+        { "regex": ["^/heading$"] },
+        { "regex": ["^/heading_multiple$"] },
+        { "regex": ["^/smash_message$"] },
+        { "regex": ["^/hp_bar_ui_text$"] }
+    ],
+    "clothing_mod": [
+        { "regex": ["^/implement_prompt$"] },
+        { "regex": ["^/destroy_prompt$"] }
+    ],
+    "conduct": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/description$"] },
+        { "regex": ["^/requirements/\\d/description$"] }
+    ],
+    "construction": [
+        { "regex": ["^/pre_note$"] }
+    ],
+    "effect_type": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/desc$"] },
+        { "regex": ["^/reduced_desc$"] },
+        { "regex": ["^/apply_message$"] },
+        { "regex": ["^/remove_message$"] },
+        { "regex": ["^/miss_messages$"] },
+        { "regex": ["^/decay_messages$"] },
+        { "regex": ["^/speed_name$"] },
+        { "regex": ["^/apply_memorial_log$"], "ctxt": "memorial_male" },
+        { "regex": ["^/apply_memorial_log$"], "ctxt": "memorial_female" }
+    ],
+    "fault": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/description$"] },
+        { "regex": ["^/mending_methods/\\d/name$"] },
+        { "regex": ["^/mending_methods/\\d/description$"] },
+        { "regex": ["^/mending_methods/\\d/success_msg$"] }
+    ],
+    "GUN": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/description$"] },
+        { "regex": ["^/modes$"] },
+        { "regex": ["^/skill$"], "ctxt": "gun_type_type" },
+        { "regex": ["^/reload_noise$"] },
+        { "regex": ["^/use_action/(\\d/)*activate_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*deactive_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*out_of_power_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*msg$"] },
+        { "regex": ["^/use_action/(\\d/)*menu_text$"] },
+        { "regex": ["^/use_action/(\\d/)*message$"] },
+        { "regex": ["^/use_action/(\\d/)*friendly_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*hostile_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*need_fire_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*need_charges_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*non_interactive_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*unfold_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*sound_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*no_deactivate_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*not_ready_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*success_message$"] },
+        { "regex": ["^/use_action/(\\d/)*lacks_fuel_message$"] },
+        { "regex": ["^/use_action/(\\d/)*failure_message$"] },
+        { "regex": ["^/use_action/(\\d/)*descriptions$"] },
+        { "regex": ["^/use_action/(\\d/)*use_message$"] },
+        { "regex": ["^/use_action/(\\d/)*noise_message$"] },
+        { "regex": ["^/use_action/(\\d/)*bury_question$"] },
+        { "regex": ["^/use_action/(\\d/)*done_message$"] },
+        { "regex": ["^/use_action/(\\d/)*voluntary_extinguish_message$"] },
+        { "regex": ["^/use_action/(\\d/)*charges_extinguish_message$"] },
+        { "regex": ["^/use_action/(\\d/)*water_extinguish_message$"] },
+        { "regex": ["^/use_action/(\\d/)*auto_extinguish_message$"] },
+        { "regex": ["^/use_action/(\\d/)*activation_message$"] },
+        { "regex": ["^/use_action/(\\d/)*holster_msg$"] },
+        { "regex": ["^/use_action/(\\d/)*holster_prompt$"] },
+        { "regex": ["^/use_action/(\\d/)*verb$"] },
+        { "regex": ["^/use_action/(\\d/)*gerund$"] }
+    ],
+    "GUNMOD": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/description$"] },
+        { "regex": ["^/mode_modifier/\\d/1$"] },
+        { "regex": ["^/location$"] },
+        { "regex": ["^/mod_targets$"], "ctxt": "gun_type_type" }
+    ],
+    "harvest": [
+        { "regex": ["^/message$"] }
+    ],
+    "mapgen": [
+        { "regex": ["^/object/place_signs/signage$"] },
+        { "regex": ["^/object/place_specials/signage$"] },
+        { "regex": ["^/object/signs/.+/signage$"] },
+        { "regex": ["^/object/computers/.+/name$"] },
+        { "regex": ["^/object/computers/.+/options/\\d/name$"] },
+        { "regex": ["^/object/computers/.+/access_denied$"] }
+    ],
+    "martial_art": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/description$"] },
+        { "regex": ["^/initiate$"] },
+        { "regex": ["^/.+/name$"] },
+        { "regex": ["^/.+/description$"] }
+    ],
+    "material": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/bash_dmg_verb$"] },
+        { "regex": ["^/cut_dmg_verb$"] },
+        { "regex": ["^/dmg_adj/\\d$"] }
+    ],
+    "mission_definition": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/description$"] },
+        { "regex": ["^/dialogue/describe$"] },
+        { "regex": ["^/dialogue/offer$"] },
+        { "regex": ["^/dialogue/accepted$"] },
+        { "regex": ["^/dialogue/rejected$"] },
+        { "regex": ["^/dialogue/advice$"] },
+        { "regex": ["^/dialogue/inquire$"] },
+        { "regex": ["^/dialogue/success$"] },
+        { "regex": ["^/dialogue/success_lie$"] },
+        { "regex": ["^/dialogue/failure$"] },
+        { "regex": ["^/.+/u_buy_monster/name"] }
+    ],
+    "monster_attack": [
+        { "regex": ["^/hit_dmg_u$"] },
+        { "regex": ["^/hit_dmg_npc$"] },
+        { "regex": ["^/no_dmg_msg_u$"] },
+        { "regex": ["^/no_dmg_msg_npc$"] }
+    ],
+    "movement_mode": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/character$"] },
+        { "regex": ["^/panel_char$"] },
+        { "regex": ["^/change_good_none$"] },
+        { "regex": ["^/change_good_animal$"] },
+        { "regex": ["^/change_good_mech$"] },
+        { "regex": ["^/change_bad_none$"] },
+        { "regex": ["^/change_bad_animal$"] },
+        { "regex": ["^/change_bad_mech$"] }
+    ],
+    "mutation": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/description$"] },
+        { "regex": ["^/attacks/(\\d/)*attack_text_u$"] },
+        { "regex": ["^/attacks/(\\d/)*attack_text_npc$"] },
+        { "regex": ["^/spawn_item/message$"] },
+        { "regex": ["^/ranged_mutation/message$"] }
+    ],
+    "mutation_category": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/mutagen_message$"] },
+        { "regex": ["^/iv_message$"] },
+        { "regex": ["^/iv_sleep_message$"] },
+        { "regex": ["^/iv_sound_message$"] },
+        { "regex": ["^/junkie_message$"] },
+        { "regex": ["^/memorial_message$"], "ctxt": "memorial_male" },
+        { "regex": ["^/memorial_message$"], "ctxt": "memorial_female" }
+    ],
+    "palette": [
+        { "regex": ["^/signs/.+/signage$"] }
+    ],
+    "profession": [
+        { "regex": ["^/name$"], "ctxt": "profession_male" },
+        { "regex": ["^/name$"], "ctxt": "profession_female" },
+        { "regex": ["^/name/male$"], "ctxt": "profession_male" },
+        { "regex": ["^/name/female$"], "ctxt": "profession_female" },
+        { "regex": ["^/description$"], "ctxt": "prof_desc_male" },
+        { "regex": ["^/description$"], "ctxt": "profession_female" }
+    ],
+    "recipe_category": [
+        { "regex": ["^/id$"], "special": "recipe_category_id" },
+        { "regex": ["^/recipe_subcategories/\\d$"], "special": "recipe_category_recipe_subcategories" }
+    ],
+    "recipe": [
+        { "regex": ["^/book_learn/.+/recipe_name$"] },
+        { "regex": ["^/description$"] },
+        { "regex": ["^/blueprint_name$"] }
+    ],
+    "recipe_group": [
+        { "regex": ["^/recipes/(\\d/)*description$"] }
+    ],
+    "scenario": [
+        { "regex": ["^/name$"], "ctxt": "scenario_male" },
+        { "regex": ["^/name$"], "ctxt": "scenario_female" },
+        { "regex": ["^/name/male$"], "ctxt": "scenario_male" },
+        { "regex": ["^/name/female$"], "ctxt": "scenario_female" },
+        { "regex": ["^/description$"], "ctxt": "scen_desc_male" },
+        { "regex": ["^/description$"], "ctxt": "scen_desc_female" },
+        { "regex": ["^/start_name$"], "ctxt": "start_name" }
+    ],
+    "snippet": [
+        { "regex": ["^/text$"] },
+        { "regex": ["^/text/\\d$"] }
+    ],
+    "talk_topic": [
+        { "regex": ["^/dynamic_line$"] },
+        { "regex": ["^/dynamic_line/.+/u_male$"] },
+        { "regex": ["^/dynamic_line/.+/u_female$"] },
+        { "regex": ["^/dynamic_line/.+/npc_male$"] },
+        { "regex": ["^/dynamic_line/.+/npc_female$"] },
+        { "regex": ["^/dynamic_line/.+/has_no_assigned_mission$"] },
+        { "regex": ["^/dynamic_line/.+/has_assigned_mission$"] },
+        { "regex": ["^/dynamic_line/.+/has_many_assigned_missions$"] },
+        { "regex": ["^/dynamic_line/.+/has_no_available_mission$"] },
+        { "regex": ["^/dynamic_line/.+/has_available_mission$"] },
+        { "regex": ["^/dynamic_line/.+/has_many_available_missions$"] },
+        { "regex": ["^/dynamic_line/.+/mission_complete$"] },
+        { "regex": ["^/dynamic_line/.+/mission_incomplete$"] },
+        { "regex": ["^/dynamic_line/.+/mission_has_generic_rewards$"] },
+        { "regex": ["^/dynamic_line/.+/npc_available$"] },
+        { "regex": ["^/dynamic_line/.+/npc_following$"] },
+        { "regex": ["^/dynamic_line/.+/npc_friend$"] },
+        { "regex": ["^/dynamic_line/.+/npc_hostile$"] },
+        { "regex": ["^/dynamic_line/.+/npc_train_skills$"] },
+        { "regex": ["^/dynamic_line/.+/npc_train_styles$"] },
+        { "regex": ["^/dynamic_line/.+/at_safe_space$"] },
+        { "regex": ["^/dynamic_line/.+/is_day$"] },
+        { "regex": ["^/dynamic_line/.+/npc_has_activity$"] },
+        { "regex": ["^/dynamic_line/.+/is_outside$"] },
+        { "regex": ["^/dynamic_line/.+/u_has_camp$"] },
+        { "regex": ["^/dynamic_line/.+/u_can_stow_weapon$"] },
+        { "regex": ["^/dynamic_line/.+/npc_can_stow_weapon$"] },
+        { "regex": ["^/dynamic_line/.+/u_has_weapon$"] },
+        { "regex": ["^/dynamic_line/.+/npc_has_weapon$"] },
+        { "regex": ["^/dynamic_line/.+/u_driving$"] },
+        { "regex": ["^/dynamic_line/.+/npc_driving$"] },
+        { "regex": ["^/dynamic_line/.+/has_pickup_list$"] },
+        { "regex": ["^/dynamic_line/.+/is_by_radio$"] },
+        { "regex": ["^/dynamic_line/.+/has_reason$"] },
+        { "regex": ["^/dynamic_line/.+/yes$"] },
+        { "regex": ["^/dynamic_line/.+/no$"] },
+        { "regex": ["^/dynamic_line/.+/and$"] }
+    ],
+    "trap": [
+        { "regex": ["^/vehicle_data/sound$"] }
+    ],
+    "gate": [
+        { "regex": ["^/messages/.+"] }
+    ],
+    "vehicle_spawn": [
+        { "regex": ["^/spawn_types/\\d/description$"] }
+    ],
+    "field_type": [
+        { "regex": ["^/intensity_levels/\\d/name$"] }
+    ],
+    "ter_furn_transform": [
+        { "regex": ["^/fail_message$"] },
+        { "regex": ["^/terrain/message$"] },
+        { "regex": ["^/furniture/message$"] }
+    ],
+    "skill_display_type": [
+        { "regex": ["^/display_string$"] }
+    ],
+    "vehicle_part_category": [
+        { "regex": ["^/name$"] },
+        { "regex": ["^/short_name$"] }
+    ],
+    "__end_of_data__": []
+}

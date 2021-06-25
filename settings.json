@@ -1,0 +1,26 @@
+{
+    "mod_dir": "./mods",
+    "output_po": "mods.po",
+    "output_csv": "mods.csv",
+    "output_debug": "debug.txt",
+    "name_needs_plural": [
+        "AMMO",
+        "ARMOR",
+        "BATTERY",
+        "BIONIC_ITEM",
+        "BOOK",
+        "COMESTIBLE",
+        "CONTAINER",
+        "ENGINE",
+        "GENERIC",
+        "GUN",
+        "GUNMOD",
+        "MAGAZINE",
+        "MONSTER",
+        "PET_ARMOR",
+        "TOOL",
+        "TOOLMOD",
+        "TOOL_ARMOR",
+        "WHEEL"
+    ]
+}
