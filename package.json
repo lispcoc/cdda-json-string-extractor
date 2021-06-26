@@ -1,0 +1,14 @@
+{
+    "name": "cdda-json-string-extractor",
+    "description": "",
+    "license": "MIT",
+    "version": "0.0.1",
+    "bin": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+  }

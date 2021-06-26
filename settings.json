@@ -3,7 +3,7 @@
     "output_po": "mods.po",
     "output_csv": "mods.csv",
     "output_debug": "debug.txt",
-    "name_needs_plural": [
+    "needs_plural_name": [
         "AMMO",
         "ARMOR",
         "BATTERY",
@@ -22,5 +22,8 @@
         "TOOLMOD",
         "TOOL_ARMOR",
         "WHEEL"
+    ],
+    "needs_plural_desc": [
+        "event_statistic"
     ]
 }

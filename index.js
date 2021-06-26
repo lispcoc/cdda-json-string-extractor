@@ -1,4 +1,9 @@
-const fs = require('fs')
+const fs = require('fs');
+
+class CJX {
+    static targets = {};
+    static settings = {};
+}
 
 //
 // Functions
@@ -25,6 +30,13 @@ const isString = (obj) => {
 }
 */
 const isString = (obj) => {
+    if (obj && typeof obj === 'object') {
+        if ("str" in obj) {
+            obj = obj["str"];
+        } else if ("str_sp" in obj) {
+            obj = obj["str_sp"];
+        }
+    }
     return (typeof(obj) === "string" || obj instanceof String);
 }
 
@@ -75,36 +87,78 @@ const toEveryString = (obj, type, key, fnc) => {
     }
 }
 
+const get_singular = (obj) => {
+    if (typeof(obj) === "string" || obj instanceof String) {
+        return obj;
+    }
+    if (obj["str"]) {
+        return obj["str"];
+    }
+    if (obj["str_sp"]) {
+        return obj["str_sp"];
+    }
+    return null;
+}
+const get_plural = (obj) =>{
+    if (typeof(obj) === "string" || obj instanceof String) {
+        return obj + "s";
+    }
+    if (obj["str_pl"]) {
+        return obj["str_pl"];
+    }
+    return get_singular(obj) + "s";
+}
 
-const extract_string = (file, targets, datum, type, json, path = "") => {
+
+const extract_string = (file, datum, type, json, path = "", current = "") => {
     if (Array.isArray(json)) {
         for (let e in json) {
-            extract_string(file, targets, datum, type, json[e], path + "/" + e);
+            extract_string(file, datum, type, json[e], path + "/" + e, e);
         }
     } else if (isString(json)) {
-        type = targets[type] ? type : "_other";
-        targets[type].forEach(key => {
+        let process_type = CJX.targets[type] ? type : "_other";
+        CJX.targets[process_type].forEach(key => {
+            let str = get_singular(json);
+            let str_pl = null;
+            if (CJX.settings.needs_plural_name.includes(type)) {
+                if(current === "name") {
+                    str_pl = get_plural(json);
+                }
+            }
+            if (CJX.settings.needs_plural_desc.includes(type)) {
+                if(current === "description") {
+                    str_pl = get_plural(json);
+                }
+            }
             let re = new RegExp(...key.regex);
             if (re.exec(path)) {
-                //console.log(path);
-                //console.log(key.regex);
-                datum.push({ file: file, type: type, path: path, value: json });
+                if (key.special == "recipe_category_id") {
+                    str = str.split("_")[1];
+                }
+                if (key.special == "recipe_category_recipe_subcategories") {
+                    if (str == "CSC_ALL") {
+                        str = "ALL";
+                    } else {
+                        str = str.split("_")[2];
+                    }
+                }
+                datum.push({ file: file, type: type, path: path, ctxt: key.ctxt, str: str,str_pl: str_pl });
             }
         });
     } else if (isObj(json)) {
         for (let e in json) {
-            extract_string(file, targets, datum, type, json[e], path + "/" + e);
+            extract_string(file, datum, type, json[e], path + "/" + e, e);
         }
     }
 }
 
-const extract_string_root = (file, targets, datum, json, path = "") => {
+const extract_string_root = (file, datum, json, path = "") => {
     if (Array.isArray(json)) {
         for (let e in json) {
-            extract_string(file, targets, datum, json[e].type, json[e], path);
+            extract_string(file, datum, json[e].type, json[e], path);
         }
     } else if (isObj(json)) {
-        extract_string(file, targets, datum, json.type, json[e], path);
+        extract_string(file, datum, json.type, json[e], path);
     }
 }
 
@@ -112,10 +166,10 @@ const extract_string_root = (file, targets, datum, json, path = "") => {
 // Main
 //
 try {
-    let settings = JSON.parse(fs.readFileSync("settings.json", 'utf-8'));
-    let targets = JSON.parse(fs.readFileSync("targets.json", 'utf-8'));
+    CJX.settings = JSON.parse(fs.readFileSync("settings.json", 'utf-8'));
+    CJX.targets = JSON.parse(fs.readFileSync("targets.json", 'utf-8'));
 
-    json_files = listFiles(settings.mod_dir).filter(path => {
+    json_files = listFiles(CJX.settings.mod_dir).filter(path => {
         return path.match(/\.json$/);
     });
 
@@ -125,7 +179,7 @@ try {
         try {
             console.log("parsing " + file);
             const json = JSON.parse(fs.readFileSync(file, 'utf-8'));
-            extract_string_root(file, targets, datum, json);
+            extract_string_root(file, datum, json);
         } catch (error) {
             console.log('Error: Something wrong with file "' + file + '"');
             console.log('Error: ' + error.message);
@@ -133,11 +187,20 @@ try {
     });
 
     try {
-        const debug_file = fs.openSync(settings.output_debug, "w");
+        const debug_file = fs.openSync(CJX.settings.output_po, "w");
         datum.forEach(data => {
             fs.writeSync(debug_file, '# ' + data.file + '\n');
-            fs.writeSync(debug_file, '# type: ' + data.type + ' path: ' + data.path + '\n');
-            fs.writeSync(debug_file, data.value + '\n');
+            fs.writeSync(debug_file, '# type: ' + data.type + ' ' + data.path + '\n');
+            if (data.ctxt) {
+                fs.writeSync(debug_file, 'ctxt "' + data.ctxt + '"\n');
+            }
+            fs.writeSync(debug_file, 'msgid "' + data.str + '"\n');
+            if (data.str_pl) {
+                fs.writeSync(debug_file, 'msgid_plural "' + data.str_pl + '"\n');
+                fs.writeSync(debug_file, 'msgstr[0] ""\n');
+            } else {
+                fs.writeSync(debug_file, 'msgstr ""\n');
+            }
             fs.writeSync(debug_file, '\n');
         });
         fs.closeSync(debug_file);
