@@ -142,7 +142,9 @@ const extract_string = (file, datum, type, json, path = "", current = "") => {
                         str = str.split("_")[2];
                     }
                 }
-                datum.push({ file: file, type: type, path: path, ctxt: key.ctxt, str: str,str_pl: str_pl });
+                str = str.replace(/(\n)/g, '\\n');
+                str_pl = str_pl ? str_pl.replace(/(\n)/g, '\\n') : null;
+                datum.push({ file: file, type: type, path: path, ctxt: key.ctxt, str: str, str_pl: str_pl });
             }
         });
     } else if (isObj(json)) {
