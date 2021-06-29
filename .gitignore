@@ -1,3 +1,7 @@
 *.txt
 *.po
 cdda-json-string-extractor-*
+node_modules/
+package-lock.json
+dist/
+*.zip

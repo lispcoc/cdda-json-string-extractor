@@ -5,10 +5,13 @@
     "version": "0.0.1",
     "bin": "index.js",
     "scripts": {
-      "start": "node index.js"
+        "start": "node index.js",
+        "build": "shx rm -rf ./dist && shx mkdir -p ./dist/mods && pkg . && shx cp cdda-json-string-extractor* settings.json targets.json dist && bestzip bundle.zip dist/*"
     },
-    "dependencies": {
-    },
+    "dependencies": {},
     "devDependencies": {
+        "bestzip": "^2.2.0",
+        "pkg": "^5.3.0",
+        "shx": "^0.3.3"
     }
-  }
+}
