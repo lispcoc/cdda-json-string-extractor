@@ -35,13 +35,13 @@
         { "regex": ["^/pre_note$"] }
     ],
     "effect_type": [
-        { "regex": ["^/name$"] },
-        { "regex": ["^/desc$"] },
-        { "regex": ["^/reduced_desc$"] },
+        { "regex": ["^/name(/\\d)*$"] },
+        { "regex": ["^/desc(/\\d)*$"] },
+        { "regex": ["^/reduced_desc(/\\d)*$"] },
         { "regex": ["^/apply_message$"] },
         { "regex": ["^/remove_message$"] },
-        { "regex": ["^/miss_messages$"] },
-        { "regex": ["^/decay_messages$"] },
+        { "regex": ["^/miss_messages(/\\d)*$"] },
+        { "regex": ["^/decay_messages(/\\d)*$"] },
         { "regex": ["^/speed_name$"] },
         { "regex": ["^/apply_memorial_log$"], "ctxt": "memorial_male" },
         { "regex": ["^/apply_memorial_log$"], "ctxt": "memorial_female" }

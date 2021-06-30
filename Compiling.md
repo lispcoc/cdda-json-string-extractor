@@ -2,5 +2,5 @@
 Nodejs
 
 ## Command
-npm install pkg -g  
-pkg .
+npm install
+npm run build
