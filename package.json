@@ -6,7 +6,7 @@
     "bin": "index.js",
     "scripts": {
         "start": "node index.js",
-        "build": "shx rm -rf ./dist && shx mkdir -p ./dist/mods && pkg . && shx cp cdda-json-string-extractor* settings.json targets.json dist && bestzip bundle.zip dist/*"
+        "build": "shx rm -rf ./release && shx mkdir -p ./release/mods && pkg . && shx cp cdda-json-string-extractor* settings.json targets.json release && bestzip cdda-json-string-extractor.zip release/"
     },
     "dependencies": {},
     "devDependencies": {

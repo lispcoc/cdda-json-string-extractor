@@ -3,5 +3,5 @@
 cdda-json-string-extractor-*
 node_modules/
 package-lock.json
-dist/
+release/
 *.zip
