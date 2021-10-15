@@ -99,7 +99,7 @@ const get_singular = (obj) => {
     }
     return null;
 }
-const get_plural = (obj) =>{
+const get_plural = (obj) => {
     if (typeof(obj) === "string" || obj instanceof String) {
         return obj + "s";
     }
@@ -121,12 +121,12 @@ const extract_string = (file, datum, type, json, path = "", current = "") => {
             let str = get_singular(json);
             let str_pl = null;
             if (CJX.settings.needs_plural_name.includes(type)) {
-                if(current === "name") {
+                if (current === "name") {
                     str_pl = get_plural(json);
                 }
             }
             if (CJX.settings.needs_plural_desc.includes(type)) {
-                if(current === "description") {
+                if (current === "description") {
                     str_pl = get_plural(json);
                 }
             }
@@ -194,7 +194,7 @@ try {
             fs.writeSync(debug_file, '# ' + data.file + '\n');
             fs.writeSync(debug_file, '# type: ' + data.type + ' ' + data.path + '\n');
             if (data.ctxt) {
-                fs.writeSync(debug_file, 'ctxt "' + data.ctxt + '"\n');
+                fs.writeSync(debug_file, 'msgctxt "' + data.ctxt + '"\n');
             }
             fs.writeSync(debug_file, 'msgid "' + data.str + '"\n');
             if (data.str_pl) {
