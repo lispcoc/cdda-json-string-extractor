@@ -249,6 +249,7 @@
         { "regex": ["^/(dynamic_line|responses)/?.*/text$"] }
     ],
     "trap": [
+        { "regex": ["^/name$"] },
         { "regex": ["^/vehicle_data/sound$"] }
     ],
     "gate": [
