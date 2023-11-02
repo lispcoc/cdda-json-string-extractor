@@ -4,6 +4,9 @@
         { "regex": ["^/description$"] },
         { "regex": ["^/text$"] },
         { "regex": ["^/sound$"] },
+        { "regex": ["^/info$"] },
+        { "regex": ["^/.+/u_message$"] },
+        { "regex": ["^/.+/npc_message$"] },
         { "regex": ["^/messages$"] }
     ],
     "achievement": [

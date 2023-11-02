@@ -188,9 +188,17 @@ try {
         } finally {}
     });
 
+    var dup = {}
     try {
         const debug_file = fs.openSync(CJX.settings.output_po, "w");
         datum.forEach(data => {
+            const ctx = data.ctx ? data.ctx : "//"
+            dup[ctx] = dup[ctx] ? dup[ctx] : {}
+            if( dup[ctx][data.str] ) {
+                return
+            } else {
+                dup[ctx][data.str] = true
+            }
             fs.writeSync(debug_file, '# ' + data.file + '\n');
             fs.writeSync(debug_file, '# type: ' + data.type + ' ' + data.path + '\n');
             if (data.ctxt) {
